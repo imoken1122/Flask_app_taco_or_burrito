@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>taco or burito ?</title>
+</head>
+<body>
+    <div class="container">
+        <div class = "header">
+            <h1>Taco or Buritto ?</h1>
+        </div>
+        <div class= "img">
+            {% if img_url %}
+                <img src = "../{{img_url}}">
+            {% else  %}
+                <p> Taco か Burrito の画像を投げてね </p>
+            {% endif %}
+        </div>
+        <div class = "result">
+            {% if result %}
+                <h3>*判別結果*</h3>
+                <p>{{ result }}</p>
+            {% else %}
+                <p> No result </p>
+            {% endif %}
+        </div>
+        <div class = "form">
+            <form method="post" action="/" enctype="multipart/form-data">
+                <input type="file" id="img_file" name="img_file" class="col">
+                <input type="submit" value="判別" class="btn">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
